@@ -1,0 +1,26 @@
+{
+  "name": "pouchdb-demo",
+  "version": "1.0.0",
+  "description": "Demonstrator for PouchDb issue [8308](https://github.com/pouchdb/pouchdb/issues/8308)",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "start-dev": "nodemon ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serge-web/PouchDb_Demonstrator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/serge-web/PouchDb_Demonstrator/issues"
+  },
+  "homepage": "https://github.com/serge-web/PouchDb_Demonstrator#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  }
+}
