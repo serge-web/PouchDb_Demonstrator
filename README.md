@@ -27,7 +27,7 @@
 2.  Add your environment variables in the .env file you created, for this version you only need to add the port for the API
 
     ```
-      PORT
+      PORT=7000
 
     ```
 
@@ -44,7 +44,7 @@
 
 ## Test the app
 
-- To test if the app is working, run http://localhost:port/api/test (you should get a hello worled message when calling this endpoint)
+- To test if the app is working, run http://localhost:port/api/test (you should get a hello world message when calling this endpoint)
 
 ## Built With
 
