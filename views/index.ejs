@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Todo List</title>
+  </head>
+  <body>
+    <nav>
+      <h2>Todo List</h2>
+      <hr />
+    </nav>
+
+    <div>
+      <br />
+      <h3>Add Todo List</h3>
+      <form action="/todo/local" method="POST">
+        <input type="text" name="todo" id="todo"> 
+        <button type="submit">Add (local)</button>
+      </form>
+      <br>
+      <form action="/todo/stream" method="POST">
+        <input type="text" name="todo" id="todo"> 
+        <button type="submit">Add (stream)</button>
+      </form>
+    </div>
+
+    <br>
+    <br>
+    
+    <hr>
+    <div>
+      <h3>All Todo Lists</h3>
+      <% if(todos.length > 0) {%> <%todos.forEach(todo => {%>
+      <ul>
+        <li><%=todo.todo %></li>
+      </ul>
+      <%})%> <%} else { %>
+      <p>There are no todo lists to display...</p>
+      <%} %>
+    </div>
+  </body>
+</html>
