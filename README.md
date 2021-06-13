@@ -1,6 +1,6 @@
 # PouchDb Demo
 
-## Getting Started
+### Getting Started
 
 - These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
@@ -15,7 +15,7 @@
      npm install
     ```
 
-## Environments
+### Environments
 
 1.  Create env files
 
@@ -31,7 +31,7 @@
 
     ```
 
-## Running the code
+### Running the code
 
 - Running the code in development environment (with nodemon)
   ```
@@ -42,11 +42,11 @@
    npm run start
   ```
 
-## Test the app
+### Test the app
 
 - To test if the app is working, run http://localhost:port/api/test (you should get a hello world message when calling this endpoint)
 
-## Built With
+### Built With
 
 - [NodeJS](https://nodejs.org/en/)
 - [ExpressJS](https://expressjs.com/)
