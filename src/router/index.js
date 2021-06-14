@@ -34,7 +34,7 @@ router.post("/todo/stream", async (req, res) => {
     var { todo } = req.body;
     console.log("put as normal doc");
     if (todo != undefined) {
-      //the post method is like a put but it generates a random _id for the document
+      //this post method is like a put but it generates a random _id for the document
       var data = await db.postDocument({
         type: "todo",
         docType: "normalDoc",
@@ -43,7 +43,8 @@ router.post("/todo/stream", async (req, res) => {
       console.log(data);
       res.redirect("/");
     }
-  } catch (error) {
+  } catch (error) { 
+    alert(error)
     console.log(error);
   }
 });
