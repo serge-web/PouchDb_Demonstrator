@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Todo List</title>
+    <link rel="stylesheet" type="text/css" href="/app.css" />
   </head>
   <body>
     <nav>
@@ -14,29 +15,42 @@
       <br />
       <h3>Add Todo List</h3>
       <form action="/todo/stream" method="POST">
-        <input type="text" name="todo" id="todo"> 
+        <input type="text" name="todo" id="todo" />
         <button type="submit">Add (normal document)</button>
       </form>
-      <br>
+      <br />
       <form action="/todo/local" method="POST">
-        <input type="text" name="todo" id="todo"> 
+        <input type="text" name="todo" id="todo" />
         <button type="submit">Add (local document)</button>
       </form>
     </div>
 
-    <br>
-    <br>
-    
-    <hr>
+    <br />
+    <br />
+
+    <hr />
     <div>
-      <h3>All Todo Lists</h3>
-      <% if(todos.length > 0) {%> <%todos.forEach(todo => {%>
-      <ul>
-        <li><%=todo.todo %></li>
-      </ul>
-      <%})%> <%} else { %>
-      <p>There are no todo lists to display...</p>
-      <%} %>
+      <div class="list">
+        <h3>Normal Documents</h3>
+        <% if(normalTodos.length > 0) {%> <%normalTodos.forEach(todo => {%>
+        <ul>
+          <li><%=todo.todo %></li>
+        </ul>
+        <%})%> <%} else { %>
+        <p>There are no todo lists to display...</p>
+        <%} %>
+      </div>
+
+      <div class="list list2">
+        <h3>Local Documents</h3>
+        <% if(localTodos.length > 0) {%> <%localTodos.forEach(todo => {%>
+        <ul>
+          <li><%=todo.todo %></li>
+        </ul>
+        <%})%> <%} else { %>
+        <p>There are no todo lists to display...</p>
+        <%} %>
+      </div>
     </div>
   </body>
 </html>
