@@ -1,5 +1,5 @@
 const db = require("./pouch");
-const uuid = require("uuid")
+const uuid = require("uuid");
 
 const findDocument = async (doc) => {
   var data = await db.find({ selector: doc });
@@ -14,9 +14,13 @@ const postDocument = async (doc) => {
 
 //create a local document
 const putLocalDocument = async (doc) => {
-  var data = await db.put({_id: `_local/${uuid.v4()}`, ...doc});
+  var data = await db.put({ _id: `_local/${uuid.v4()}`, ...doc });
   return data;
 };
 
+const getDocument = async (id) => {
+  var data = await db.get(id);
+  return data;
+};
 
-module.exports = { postDocument, findDocument, putLocalDocument };
+module.exports = { postDocument, findDocument, putLocalDocument, getDocument };
