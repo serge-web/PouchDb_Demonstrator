@@ -12,17 +12,19 @@ router.get("/", async (req, res) => {
     var todoLists = await db.findDocument({ type: "todo" });
 
     //get Local doc ids using find method and get data from each id
-    var localDocIds = await db.findDocument({ type: "local_doc_id" });
-    var store = [];
-    for (var i = 0; i < localDocIds.length; i++) {
-      var id = localDocIds[i].id;
+    var localDocIds = (await db.findDocument({ type: "localDocumentStore" })) 
+    var localDocId = localDocIds[0].localDocIds
+    var array = []; 
+
+    for (var i = 0; i < localDocId.length; i++) {
+      var id = localDocId[i]
       var localDoc = await db.getDocument(id);
-      store.push(localDoc);
+      array.push(localDoc);
     }
 
     res.render("index", {
       normalTodos: todoLists,
-      localTodos: store,
+      localTodos: array,
     });
   } catch (error) {
     console.log(error);
@@ -43,7 +45,7 @@ router.post("/todo/stream", async (req, res) => {
       console.log(data);
       res.redirect("/");
     }
-  } catch (error) { 
+  } catch (error) {
     console.log(error);
   }
 });
@@ -59,11 +61,10 @@ router.post("/todo/local", async (req, res) => {
         todo,
       });
 
-      //save id of this local document as a normal document
-      var localDoc = await db.postDocument({
-        type: "local_doc_id",
-        id: data.id,
-      });
+      //get document which stores local document ids, store
+      var store = await db.findDocument({ type: "localDocumentStore" });
+      store[0].localDocIds.push(data.id)  
+      db.updateDocument(store[0])
       res.redirect("/");
     }
   } catch (error) {
