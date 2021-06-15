@@ -10,6 +10,12 @@
       <h2>PouchDB Demo</h2>
       <hr />
     </nav>
+    <div class="notification">
+      <% if(messages.length > 0) {%> <%messages.forEach(msg => {%>
+      <h4 class="message"><%=msg %></h4>
+      <%})%> <%} else { %> <%} %>
+    </div>
+
 
     <div>
       <br />
