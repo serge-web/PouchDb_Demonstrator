@@ -1,7 +1,16 @@
 .list {
     float: left; 
+    position: static;
 }
 
 .list2 {
     padding-left: 250px;
+}
+
+.notification {
+    padding-left: 45%;
+}
+
+.message {
+    color: royalblue;
 }
