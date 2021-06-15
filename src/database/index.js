@@ -23,4 +23,15 @@ const getDocument = async (id) => {
   return data;
 };
 
-module.exports = { postDocument, findDocument, putLocalDocument, getDocument };
+const updateDocument = async (doc) => {
+  var data = await db.put(doc);
+  console.log(data);
+};
+
+module.exports = {
+  postDocument,
+  findDocument,
+  putLocalDocument,
+  updateDocument,
+  getDocument,
+};
