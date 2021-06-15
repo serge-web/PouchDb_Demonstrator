@@ -44,7 +44,6 @@ router.post("/todo/stream", async (req, res) => {
       res.redirect("/");
     }
   } catch (error) { 
-    alert(error)
     console.log(error);
   }
 });
