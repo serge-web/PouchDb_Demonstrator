@@ -73,7 +73,8 @@ router.post("/todo/local", async (req, res) => {
     }
   } catch (error) {
     console.log(error);
-    req.flash('info', 'Sync error')
+    req.flash('info', error.message)
+    res.redirect("/");
   }
 });
 
