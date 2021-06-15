@@ -24,7 +24,8 @@ router.get("/", async (req, res) => {
 
     res.render("index", {
       normalTodos: todoLists,
-      localTodos: array,
+      localTodos: array, 
+      messages: req.flash('info')
     });
   } catch (error) {
     console.log(error);
@@ -42,11 +43,13 @@ router.post("/todo/stream", async (req, res) => {
         docType: "normalDoc",
         todo,
       });
-      console.log(data);
+      console.log(data); 
+      req.flash('info', 'Normal document added successfully')
       res.redirect("/");
     }
   } catch (error) {
     console.log(error);
+    req.flash('info', 'Sync error')
   }
 });
 
@@ -65,10 +68,12 @@ router.post("/todo/local", async (req, res) => {
       var store = await db.findDocument({ type: "localDocumentStore" });
       store[0].localDocIds.push(data.id)  
       db.updateDocument(store[0])
+      req.flash('info', 'Local document added successfully')
       res.redirect("/");
     }
   } catch (error) {
     console.log(error);
+    req.flash('info', 'Sync error')
   }
 });
 
