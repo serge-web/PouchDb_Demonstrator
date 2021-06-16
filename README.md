@@ -44,7 +44,7 @@
 
 ### Test the app
 
-- To test if the app is working, run http://localhost:port/api/test (you should get a hello world message when calling this endpoint)
+- To test if the app is working, run http://localhost:port/test (you should get a hello world message when calling this endpoint)
 
 ### Built With
 
